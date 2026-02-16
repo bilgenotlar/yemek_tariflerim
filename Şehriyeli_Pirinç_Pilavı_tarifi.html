@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şehriyeli Pirinç Pilavı | Kemal'in Mutfağı</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #fdfaf5; color: #2d3436; margin: 0; padding: 15px; }
+        .card { background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-align: center; text-transform: uppercase; margin: 0; color: #1a1a1a; }
+        .meta { text-align: center; font-size: 0.75rem; color: #666; text-transform: uppercase; letter-spacing: 1.5px; margin: 15px 0 25px 0; border-bottom: 2px solid #000; padding-bottom: 10px; }
+        
+        .portion-control { display: flex; align-items: center; justify-content: center; gap: 10px; background: #f4f1ea; padding: 10px; border-radius: 8px; margin-bottom: 20px; font-weight: bold; }
+        .portion-control input { width: 50px; padding: 5px; border: 1px solid #ccc; border-radius: 4px; text-align: center; font-size: 1rem; }
+
+        h3 { font-size: 1.1rem; text-transform: uppercase; border-bottom: 1px solid #ddd; padding-bottom: 8px; margin-top: 30px; color: #1a1a1a; }
+        .check-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; font-size: 1rem; cursor: pointer; }
+        .check-item input { margin-top: 4px; width: 20px; height: 20px; accent-color: #000; }
+        .check-item input:checked + span { text-decoration: line-through; color: #94a3b8; }
+        
+        .step-row { border-bottom: 1px solid #f8f9fa; padding: 10px 0; line-height: 1.6; }
+
+        /* Gelişmiş Zamanlayıcı */
+        .timer-zone { margin-top: 40px; background: #1a1a1a; color: white; padding: 25px; border-radius: 12px; text-align: center; }
+        .timer-display { font-size: 3rem; font-weight: 900; margin: 15px 0; font-variant-numeric: tabular-nums; color: #fab1a0; }
+        .manual-entry { margin-bottom: 15px; display: flex; justify-content: center; gap: 10px; }
+        .manual-entry input { width: 80px; padding: 8px; border-radius: 6px; border: none; text-align: center; font-weight: bold; }
+        .btn-start { background: #55efc4; color: #000; border: none; padding: 8px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .timer-btns { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+        .t-btn { background: #333; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+        
+        footer { text-align: center; font-size: 0.7rem; color: #999; margin-top: 40px; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Şehriyeli Pirinç Pilavı</h1>
+        <div class="meta">Çorbalar | 16.02.2026</div>
+        
+        <div class="portion-control">
+            <span>👥 Porsiyon Ayarı:</span>
+            <input type="number" id="yieldInput" value="4" min="1" max="20">
+        </div>
+
+        <div style="background: #fcfdfe; padding: 20px; border-radius: 10px; border: 1px solid #f1f5f9;">
+            <h3>Malzemeler</h3>
+            <div id="ingredientsList">
+                <label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="2 yemek kaşığı tereyağı">2 yemek kaşığı tereyağı</span></label><label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="3 yemek kaşığı sıvı yağ">3 yemek kaşığı sıvı yağ</span></label><label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="2 su bardağı pirinç">2 su bardağı pirinç</span></label><label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="Yarım su bardağı arpa şehriye">Yarım su bardağı arpa şehriye</span></label><label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="3 su bardağı sıcak su (tavuk suyu)">3 su bardağı sıcak su (tavuk suyu)</span></label><label class="check-item"><input type="checkbox"><span class="ing-text" data-orig="Tuz">Tuz</span></label>
+            </div>
+        </div>
+
+        <h3>Hazırlanışı</h3>
+        <div class="step-row"><label class="check-item"><input type="checkbox"><span>Pirinçler bol su ile yıkanarak, ılık tuzlu suda yarım saat kadar bekletilir.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Bu süre sonunda, tuzlu suyu akıtılır ve pirinçler sudan geçirilerek, tüm suyu süzdürülür.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Pilav tenceresinde tereyağı eritilir, sıvı yağ da eklenerek üzerine arpa şehriyeler eklenir.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Şehriyenin rengi dönene kadar kavrulur.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Pirinçler ilave edilerek, 2-3 dk daha kavrulur.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Üzerine sıcak su eklenir ve tuzu ilave edilir.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Tencerenin kapağı kapatılarak, yüksek ateşte fazla suyu çekip pirinçler göz göz oluncaya kadar, yani pirinçlerin üzerinde su çekilip pirinçler göründüğünde kısık ateşe alın ve tamamen suyu çekene kadar pişirin. (Yazının devamında süreler ile ilgili detaylı açıklamayı bulabilirsiniz.)</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Ocaktan aldıktan sonra, üzerine havlu kağıt koyarak kapağını tekrar kapatın ve demlenmesini bekleyin.</span></label></div><div class="step-row"><label class="check-item"><input type="checkbox"><span>Pilavı güzelce karıştırdıktan sonra servis yapabilirsiniz.</span></label></div>
+        
+        <div class="timer-zone">
+            <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Mutfak Zamanlayıcısı</div>
+            
+            <div class="manual-entry">
+                <input type="number" id="manualMinutes" placeholder="Dakika" min="1">
+                <button class="btn-start" onclick="startManual()">BAŞLAT</button>
+            </div>
+
+            <div id="timerDisplay" class="timer-display">00:00</div>
+
+            <div class="timer-btns">
+                <button class="t-btn" onclick="startTimer(3)">3 dk</button>
+                <button class="t-btn" onclick="startTimer(5)">5 dk</button>
+                <button class="t-btn" onclick="startTimer(10)">10 dk</button>
+                <button class="t-btn" style="background:#e74c3c" onclick="resetTimer()">Durdur</button>
+            </div>
+        </div>
+
+        <footer>KEMAL'İN MUTFAĞI'NDAN SEVGİYLE GÖNDERİLDİ.</footer>
+    </div>
+
+    <audio id="alarmSound" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" preload="auto"></audio>
+
+    <script>
+        // Porsiyon Mantığı
+        const yieldInput = document.getElementById('yieldInput');
+        const originalYield = 4;
+        yieldInput.addEventListener('input', (e) => {
+            const currentYield = parseFloat(e.target.value) || 1;
+            const ratio = currentYield / originalYield;
+            document.querySelectorAll('.ing-text').forEach(el => {
+                const originalText = el.getAttribute('data-orig');
+                el.innerText = originalText.replace(/^([0-9\/\.\,]+)/, (match) => {
+                    let num = eval(match.replace(',', '.'));
+                    let newNum = (num * ratio).toFixed(1);
+                    return newNum.endsWith('.0') ? newNum.slice(0, -2) : newNum;
+                });
+            });
+        });
+
+        // Zamanlayıcı Mantığı
+        let countdown;
+        const alarm = document.getElementById('alarmSound');
+
+        function startManual() {
+            const mins = document.getElementById('manualMinutes').value;
+            if(mins > 0) startTimer(parseInt(mins));
+        }
+
+        function startTimer(minutes) {
+            resetTimer();
+            let seconds = minutes * 60;
+            const display = document.getElementById('timerDisplay');
+            
+            countdown = setInterval(() => {
+                seconds--;
+                const m = Math.floor(seconds / 60);
+                const s = seconds % 60;
+                const timeStr = `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                
+                display.innerText = timeStr;
+                document.title = "(" + timeStr + ") Şehriyeli Pirinç Pilavı"; // Sekme başlığında göster
+
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    document.title = "SÜRE DOLDU!";
+                    alarm.play(); // Zil çal
+                    // Zil sesini 3 kez tekrarla
+                    let playCount = 1;
+                    alarm.onended = () => {
+                        if(playCount < 3) { alarm.play(); playCount++; }
+                    };
+                    setTimeout(() => alert('Süre doldu! Yemeği kontrol et.'), 500);
+                }
+            }, 1000);
+        }
+
+        function resetTimer() {
+            clearInterval(countdown);
+            document.getElementById('timerDisplay').innerText = '00:00';
+            document.title = "Şehriyeli Pirinç Pilavı | Kemal'in Mutfağı";
+        }
+    </script>
+</body>
+</html>
