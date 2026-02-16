@@ -9,24 +9,29 @@
         body { font-family: 'Inter', sans-serif; background: #fdfaf5; color: #2d3436; margin: 0; padding: 20px; display: flex; justify-content: center; }
         .menu-card { background: white; width: 100%; max-width: 500px; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
         h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 30px; }
+        .recipe-list { display: flex; flex-direction: column; gap: 10px; }
         .recipe-link { 
             display: block; text-decoration: none; color: #2d3436; padding: 15px; 
-            margin-bottom: 10px; border: 1px solid #eee; border-radius: 8px; 
+            border: 1px solid #eee; border-radius: 8px; 
             transition: 0.2s; font-weight: 600; background: #fff; text-align: left;
         }
         .recipe-link:hover { background: #f4f1ea; border-color: #d1ccc0; transform: translateY(-2px); }
+        .emoji { margin-right: 12px; font-size: 1.2rem; }
         footer { margin-top: 40px; font-size: 0.7rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
 <body>
     <div class="menu-card">
         <h1>Mutfak Menüsü</h1>
-        <div id="recipe-list"></div>
+        <div id="recipe-list" class="recipe-list"></div>
         <footer>Kemal'in Dijital Yemek Kütüphanesi</footer>
     </div>
 
     <script>
-        // BURAYA SADECE DOSYA ADLARINI EKLEMEN YETERLİ
+        /**
+         * YENİ TARİF EKLEDİĞİNDE SADECE BURADAKİ LİSTEYE DOSYA ADINI EKLE
+         * Örn: "yaylacorbasi.html"
+         */
         const tarifler = [
             "sehriyelipilav.html",
             "kadinbudu.html"
@@ -39,10 +44,10 @@
             link.href = dosya;
             link.className = 'recipe-link';
             
-            // Dosya adını güzel bir başlığa çevir (örn: kadinbudu -> Kadinbudu)
+            // Dosya adını güzel bir başlığa çevirme
             const baslik = dosya.replace('.html', '').replace(/_/g, ' ').toUpperCase();
             
-            link.innerHTML = `<span>🍽️</span> \${baslik}`;
+            link.innerHTML = `<span class="emoji">🍽️</span> \${baslik}`;
             listContainer.appendChild(link);
         });
     </script>
