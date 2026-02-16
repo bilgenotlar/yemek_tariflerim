@@ -28,10 +28,6 @@
     </div>
 
     <script>
-        /**
-         * YENİ TARİF EKLEDİĞİNDE SADECE BURADAKİ LİSTEYE DOSYA ADINI EKLE
-         * Örn: "yaylacorbasi.html"
-         */
         const tarifler = [
             "sehriyelipilav.html",
             "kadinbudu.html"
@@ -44,10 +40,11 @@
             link.href = dosya;
             link.className = 'recipe-link';
             
-            // Dosya adını güzel bir başlığa çevirme
+            // Dosya adını temizleyip başlığa çevirir
             const baslik = dosya.replace('.html', '').replace(/_/g, ' ').toUpperCase();
             
-            link.innerHTML = `<span class="emoji">🍽️</span> \${baslik}`;
+            // BURASI KRİTİK: Ters tırnak (backtick) kullanmalısın!
+            link.innerHTML = `<span class="emoji">🍽️</span> ` + baslik;
             listContainer.appendChild(link);
         });
     </script>
