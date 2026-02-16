@@ -28,25 +28,27 @@
     </div>
 
     <script>
-        const tarifler = [
-            "sehriyelipilav.html",
-            "kadinbudu.html"
-        ];
+    /**
+     * LİSTE GÜNCELLEME:
+     * Buraya önce dosya adını, sonra ekranda görünmesini istediğin 
+     * gerçek Türkçe ismi yazıyoruz.
+     */
+    const tarifler = [
+        { dosya: "sehriyelipilav.html", ad: "Şehriyeli Pirinç Pilavı" },
+        { dosya: "kadinbudu.html", ad: "Kadınbudu Köfte" }
+    ];
 
-        const listContainer = document.getElementById('recipe-list');
+    const listContainer = document.getElementById('recipe-list');
+    
+    tarifler.forEach(item => {
+        const link = document.createElement('a');
+        link.href = item.dosya;
+        link.className = 'recipe-link';
         
-        tarifler.forEach(dosya => {
-            const link = document.createElement('a');
-            link.href = dosya;
-            link.className = 'recipe-link';
-            
-            // Dosya adını temizleyip başlığa çevirir
-            const baslik = dosya.replace('.html', '').replace(/_/g, ' ').toUpperCase();
-            
-            // BURASI KRİTİK: Ters tırnak (backtick) kullanmalısın!
-            link.innerHTML = `<span class="emoji">🍽️</span> ` + baslik;
-            listContainer.appendChild(link);
-        });
-    </script>
+        // Artık başlığı kod üretmiyor, senin yazdığın 'ad' kısmını kullanıyor
+        link.innerHTML = `<span class="emoji">🍽️</span> ` + item.ad;
+        listContainer.appendChild(link);
+    });
+</script>
 </body>
 </html>
