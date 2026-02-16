@@ -12,19 +12,39 @@
         .recipe-link { 
             display: block; text-decoration: none; color: #2d3436; padding: 15px; 
             margin-bottom: 10px; border: 1px solid #eee; border-radius: 8px; 
-            transition: 0.2s; font-weight: 600; background: #fff;
+            transition: 0.2s; font-weight: 600; background: #fff; text-align: left;
         }
         .recipe-link:hover { background: #f4f1ea; border-color: #d1ccc0; transform: translateY(-2px); }
-        .recipe-link span { font-size: 1.2rem; margin-right: 10px; }
         footer { margin-top: 40px; font-size: 0.7rem; color: #999; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
 <body>
     <div class="menu-card">
         <h1>Mutfak Menüsü</h1>
-        
-        <a href="sehriyelipilav.html" class="recipe-link"><span>🍚</span> Şehriyeli Pirinç Pilavı</a>
+        <div id="recipe-list"></div>
         <footer>Kemal'in Dijital Yemek Kütüphanesi</footer>
     </div>
+
+    <script>
+        // BURAYA SADECE DOSYA ADLARINI EKLEMEN YETERLİ
+        const tarifler = [
+            "sehriyelipilav.html",
+            "kadinbudu.html"
+        ];
+
+        const listContainer = document.getElementById('recipe-list');
+        
+        tarifler.forEach(dosya => {
+            const link = document.createElement('a');
+            link.href = dosya;
+            link.className = 'recipe-link';
+            
+            // Dosya adını güzel bir başlığa çevir (örn: kadinbudu -> Kadinbudu)
+            const baslik = dosya.replace('.html', '').replace(/_/g, ' ').toUpperCase();
+            
+            link.innerHTML = `<span>🍽️</span> \${baslik}`;
+            listContainer.appendChild(link);
+        });
+    </script>
 </body>
 </html>
